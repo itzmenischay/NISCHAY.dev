@@ -13,7 +13,11 @@ const TECH_CATEGORIES = [
       { name: "TypeScript", icon: "typescript/typescript-original.svg" },
       { name: "React.js", icon: "react/react-original.svg" },
       { name: "Tailwind CSS", icon: "tailwindcss/tailwindcss-original.svg" },
-      { name: "Framer Motion", icon: "framermotion/framermotion-original.svg", invert: true },
+      {
+        name: "Framer Motion",
+        icon: "framermotion/framermotion-original.svg",
+        invert: true,
+      },
       { name: "Three.js", icon: "threejs/threejs-original.svg", invert: true },
       { name: "GSAP", icon: "greensock/greensock-original.svg" },
       { name: "Next.js", icon: "nextjs/nextjs-original.svg", invert: true },
@@ -25,10 +29,18 @@ const TECH_CATEGORIES = [
     title: "Backend",
     skills: [
       { name: "Node.js", icon: "nodejs/nodejs-original.svg" },
-      { name: "Express.js", icon: "express/express-original.svg", invert: true },
+      {
+        name: "Express.js",
+        icon: "express/express-original.svg",
+        invert: true,
+      },
       { name: "MongoDB", icon: "mongodb/mongodb-original.svg" },
       { name: "Firebase", icon: "firebase/firebase-plain.svg" },
-      { name: "Socket.io", icon: "socketio/socketio-original.svg", invert: true },
+      {
+        name: "Socket.io",
+        icon: "socketio/socketio-original.svg",
+        invert: true,
+      },
       { name: "MySQL", icon: "mysql/mysql-original.svg" },
       { name: "PostgreSQL", icon: "postgresql/postgresql-original.svg" },
       { name: "REST API", icon: "fastapi/fastapi-original.svg" },
@@ -68,12 +80,10 @@ export function TechStackSection() {
   const item = {
     hidden: {
       opacity: 0,
-      scale: 0.92,
-      filter: "blur(10px)",
+      filter: "blur(8px)",
     },
     visible: {
       opacity: 1,
-      scale: 1,
       filter: "blur(0px)",
       transition: {
         duration: 0.8,
@@ -154,7 +164,6 @@ export function TechStackSection() {
                     key={skill.name}
                     variants={item}
                     whileHover={{
-                      y: -6,
                       scale: 1.04,
                       transition: {
                         duration: 0.35,
@@ -169,7 +178,6 @@ export function TechStackSection() {
                     {/* Icon */}
                     <motion.div
                       whileHover={{
-                        scale: 1.12,
                         rotate: 2,
                       }}
                       transition={{
