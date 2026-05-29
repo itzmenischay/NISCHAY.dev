@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLoader } from "@/context/LoaderContext";
 
 function ElegantShape({
   className,
@@ -10,6 +11,8 @@ function ElegantShape({
   rotate = 0,
   gradient = "from-blue-500/[0.12]",
 }) {
+  const { isLoaderFinished } = useLoader();
+
   return (
     <motion.div
       initial={{
@@ -17,14 +20,22 @@ function ElegantShape({
         y: -150,
         rotate: rotate - 15,
       }}
-      animate={{
-        opacity: 1,
-        y: 0,
-        rotate,
-      }}
+      animate={
+        isLoaderFinished
+          ? {
+              opacity: 1,
+              y: 0,
+              rotate,
+            }
+          : {
+              opacity: 0,
+              y: -150,
+              rotate: rotate - 15,
+            }
+      }
       transition={{
         duration: 2.4,
-        delay,
+        delay: 0,
         ease: [0.23, 0.86, 0.39, 0.96],
         opacity: { duration: 1.2 },
       }}
@@ -67,6 +78,8 @@ function HeroGeometric({
   title2 = "Crafting Exceptional Websites",
   children,
 }) {
+  const { isLoaderFinished } = useLoader();
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i) => ({
@@ -74,7 +87,7 @@ function HeroGeometric({
       y: 0,
       transition: {
         duration: 1,
-        delay: 0.5 + i * 0.2,
+        delay: 0.1, // slight delay for smoothness, but no stagger
         ease: [0.25, 0.4, 0.25, 1],
       },
     }),
@@ -182,7 +195,7 @@ function HeroGeometric({
             custom={0}
             variants={fadeUpVariants}
             initial="hidden"
-            animate="visible"
+            animate={isLoaderFinished ? "visible" : "hidden"}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/[0.05] border border-blue-500/[0.15] mb-8 md:mb-12 shadow-[0_0_15px_rgba(59,130,246,0.2)]"
           >
             <Circle className="h-2 w-2 fill-blue-500/80 text-blue-500/80 animate-pulse" />
@@ -195,7 +208,7 @@ function HeroGeometric({
             custom={1}
             variants={fadeUpVariants}
             initial="hidden"
-            animate="visible"
+            animate={isLoaderFinished ? "visible" : "hidden"}
           >
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">

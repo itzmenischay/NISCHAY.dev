@@ -9,8 +9,11 @@ import {
   Zap,
 } from "lucide-react";
 import { HeroGeometric } from "@/components/HeroBackground";
+import { useLoader } from "@/context/LoaderContext";
 
 export function HeroSection() {
+  const { isLoaderFinished } = useLoader();
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i) => ({
@@ -18,7 +21,7 @@ export function HeroSection() {
       y: 0,
       transition: {
         duration: 1,
-        delay: 0.5 + i * 0.2,
+        delay: 0.1, // matches HeroBackground
         ease: [0.25, 0.4, 0.25, 1],
       },
     }),
@@ -42,7 +45,7 @@ export function HeroSection() {
           custom={2}
           variants={fadeUpVariants}
           initial="hidden"
-          animate="visible"
+          animate={isLoaderFinished ? "visible" : "hidden"}
           className="flex flex-col items-center w-full"
         >
           <p className="text-base sm:text-sm md:text-lg text-white/60 mb-10 leading-relaxed font-light tracking-wide max-w-xl lg:max-w-2xl mx-auto px-4">
@@ -77,22 +80,48 @@ export function HeroSection() {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl px-4">
-            {stats.map((stat, idx) => (
-              <div
-                key={stat.label}
-                className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:bg-blue-500/[0.05] hover:border-blue-500/20 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] transition-all duration-300 group"
-              >
-                <stat.icon className="w-5 h-5 text-blue-400 mb-2 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-2xl font-bold text-white mb-1">
-                  {stat.value}
-                </span>
-                <span className="text-xs text-white/50 text-center uppercase tracking-wider">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={
+              isLoaderFinished
+                ? {
+                    opacity: 1,
+                    y: 0,
+                  }
+                : {
+                    opacity: 0,
+                    y: 20,
+                  }
+            }
+            transition={{
+              duration: 0.9,
+              delay: 0.55, // slightly after hero content
+              ease: [0.25, 0.4, 0.25, 1],
+            }}
+            className="w-full max-w-4xl px-4"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="group flex flex-col items-center justify-center rounded-2xl border border-white/[0.05] bg-white/[0.02] p-4 transition-all duration-300 hover:border-blue-500/20 hover:bg-blue-500/[0.05] hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                >
+                  <stat.icon className="mb-2 h-5 w-5 text-blue-400 transition-transform duration-300 group-hover:scale-110" />
+
+                  <span className="mb-1 text-2xl font-bold text-white">
+                    {stat.value}
+                  </span>
+
+                  <span className="text-center text-xs uppercase tracking-wider text-white/50">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </HeroGeometric>
     </section>
