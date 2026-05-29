@@ -45,11 +45,13 @@ function App() {
   useEffect(() => {
     if (isLoading) return; // Don't initialize lenis while loading
     
+    const isMobile = window.innerWidth < 768;
+    
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: isMobile ? 0.8 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 2,
+      touchMultiplier: isMobile ? 1.5 : 2,
     });
 
     function raf(time) {
@@ -86,10 +88,10 @@ function App() {
           {/* Bluish Ambient Glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-cyan-500/[0.05] blur-3xl" />
           
-          {/* Large blurred blue glow spots */}
-          <div className="absolute top-[20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-600/10 blur-[120px] mix-blend-screen" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-cyan-600/10 blur-[130px] mix-blend-screen" />
-          <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[80vw] h-[80vw] rounded-full bg-blue-900/10 blur-[150px] mix-blend-screen opacity-50" />
+          {/* Large blurred blue glow spots - optimized for mobile */}
+          <div className="hidden md:block absolute top-[20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-600/10 blur-[120px] mix-blend-screen" />
+          <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-cyan-600/10 blur-[130px] mix-blend-screen" />
+          <div className="hidden md:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[80vw] h-[80vw] rounded-full bg-blue-900/10 blur-[150px] mix-blend-screen opacity-50" />
         </div>
 
         <Navbar />

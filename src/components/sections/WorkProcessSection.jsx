@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { SectionHeading } from "@/components/SectionHeading";
+import { useMobile } from "@/hooks/useMobile";
 
 const PROCESS_STEPS = [
   {
@@ -44,6 +45,7 @@ const PROCESS_STEPS = [
 function ProcessStep({ step, idx }) {
   const stepRef = useRef(null);
   const isEven = idx % 2 === 0;
+  const isMobileHook = useMobile();
 
   const isCenterInView = useInView(stepRef, {
     margin: "-50% 0px -50% 0px",
@@ -109,7 +111,7 @@ function ProcessStep({ step, idx }) {
             x: isDesktop ? (isEven ? 120 : -120) : 120,
 
             scale: 0.98,
-            filter: "blur(10px)",
+            filter: isMobileHook ? "none" : "blur(10px)",
           }}
           whileInView={{
             opacity: 1,
@@ -196,7 +198,7 @@ export function WorkProcessSection() {
             style={{
               height: lineHeight,
             }}
-            className="absolute top-0 left-0 w-full bg-gradient-to-b from-blue-400 to-cyan-500 shadow-[0_0_15px_rgba(59,130,246,0.8)]"
+            className="absolute top-0 left-0 w-full bg-gradient-to-b from-blue-400 to-cyan-500 shadow-sm md:shadow-[0_0_15px_rgba(59,130,246,0.8)]"
           />
         </div>
 

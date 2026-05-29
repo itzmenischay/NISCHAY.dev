@@ -57,7 +57,7 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
             <a
               href="#projects"
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-medium text-white bg-blue-600 rounded-full overflow-hidden transition-all hover:bg-blue-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.6)]"
+              className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-medium text-white bg-blue-600 rounded-full overflow-hidden transition-all hover:bg-blue-500 hover:shadow-none md:hover:shadow-[0_0_40px_rgba(59,130,246,0.6)]"
             >
               <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-black" />
               <span className="relative">View Projects</span>
@@ -107,7 +107,7 @@ export function HeroSection() {
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="group flex flex-col items-center justify-center rounded-2xl border border-white/[0.05] bg-white/[0.02] p-4 transition-all duration-300 hover:border-blue-500/20 hover:bg-blue-500/[0.05] hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                  className="group flex flex-col items-center justify-center rounded-2xl border border-white/[0.05] bg-white/[0.02] p-4 transition-all duration-300 hover:border-blue-500/20 hover:bg-blue-500/[0.05] hover:shadow-sm md:hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                 >
                   <stat.icon className="mb-2 h-5 w-5 text-blue-400 transition-transform duration-300 group-hover:scale-110" />
 

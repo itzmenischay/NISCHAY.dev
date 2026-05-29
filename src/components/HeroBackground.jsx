@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLoader } from "@/context/LoaderContext";
+import { useMobile } from "@/hooks/useMobile";
 
 function ElegantShape({
   className,
@@ -12,6 +13,7 @@ function ElegantShape({
   gradient = "from-blue-500/[0.12]",
 }) {
   const { isLoaderFinished } = useLoader();
+  const isMobile = useMobile();
 
   return (
     <motion.div
@@ -39,11 +41,11 @@ function ElegantShape({
         ease: [0.23, 0.86, 0.39, 0.96],
         opacity: { duration: 1.2 },
       }}
-      className={cn("absolute", className)}
+      className={cn("absolute transform-gpu will-change-transform", className)}
     >
       <motion.div
         animate={{
-          y: [0, 15, 0],
+          y: [0, isMobile ? 3 : 15, 0],
         }}
         transition={{
           duration: 12,
@@ -54,7 +56,7 @@ function ElegantShape({
           width,
           height,
         }}
-        className="relative"
+        className="relative transform-gpu will-change-transform"
       >
         <div
           className={cn(
@@ -62,7 +64,7 @@ function ElegantShape({
             "bg-gradient-to-r to-transparent",
             gradient,
             "backdrop-blur-[2px] border-2 border-blue-400/10",
-            "shadow-[0_8px_32px_0_rgba(59,130,246,0.15)]",
+            "shadow-sm md:shadow-[0_8px_32px_0_rgba(59,130,246,0.15)]",
             "after:absolute after:inset-0 after:rounded-full",
             "after:bg-[radial-gradient(circle_at_50%_50%,rgba(96,165,250,0.2),transparent_70%)]",
           )}
@@ -196,9 +198,9 @@ function HeroGeometric({
             variants={fadeUpVariants}
             initial="hidden"
             animate={isLoaderFinished ? "visible" : "hidden"}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/[0.05] border border-blue-500/[0.15] mb-8 md:mb-12 shadow-[0_0_15px_rgba(59,130,246,0.2)]"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/[0.05] border border-blue-500/[0.15] mb-8 md:mb-12 shadow-sm md:shadow-[0_0_15px_rgba(59,130,246,0.2)]"
           >
-            <Circle className="h-2 w-2 fill-blue-500/80 text-blue-500/80 animate-pulse" />
+            <Circle className="h-2 w-2 fill-blue-500/80 text-blue-500/80 animate-none md:animate-pulse" />
             <span className="text-sm text-blue-100/80 tracking-wide font-medium">
               {badge}
             </span>

@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/SectionHeading";
 import { GlassCard } from "@/components/GlassCard";
+import { useMobile } from "@/hooks/useMobile";
 
 const TECH_CATEGORIES = [
   {
@@ -65,12 +66,14 @@ const TECH_CATEGORIES = [
 ];
 
 export function TechStackSection() {
+  const isMobile = useMobile();
+
   const container = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: isMobile ? 0 : 0.08,
         delayChildren: 0.2,
         ease: [0.22, 1, 0.36, 1],
       },
@@ -80,7 +83,7 @@ export function TechStackSection() {
   const item = {
     hidden: {
       opacity: 0,
-      filter: "blur(8px)",
+      filter: isMobile ? "none" : "blur(8px)",
     },
     visible: {
       opacity: 1,
@@ -110,7 +113,7 @@ export function TechStackSection() {
               opacity: 0,
               y: 60,
               scale: 0.97,
-              filter: "blur(12px)",
+              filter: isMobile ? "none" : "blur(12px)",
             }}
             whileInView={{
               opacity: 1,
@@ -170,7 +173,7 @@ export function TechStackSection() {
                         ease: [0.22, 1, 0.36, 1],
                       },
                     }}
-                    className="group relative flex flex-col items-center justify-center gap-3 p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:bg-blue-500/[0.05] hover:border-blue-500/30 hover:shadow-[0_0_25px_rgba(59,130,246,0.2)] transition-all duration-500 cursor-default overflow-hidden"
+                    className="group relative flex flex-col items-center justify-center gap-3 p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:bg-blue-500/[0.05] hover:border-blue-500/30 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] md:hover:shadow-[0_0_25px_rgba(59,130,246,0.2)] transition-all duration-500 cursor-default overflow-hidden"
                   >
                     {/* Glow Effect */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12),transparent_70%)]" />
@@ -189,7 +192,9 @@ export function TechStackSection() {
                       <img
                         src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}`}
                         alt={skill.name}
-                        className={`w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_14px_rgba(59,130,246,0.45)] transition-all duration-500 ${skill.invert ? "invert" : ""}`}
+                        loading="lazy"
+                        decoding="async"
+                        className={`w-full h-full object-contain filter drop-shadow-sm md:drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.45)] md:group-hover:drop-shadow-[0_0_14px_rgba(59,130,246,0.45)] transition-all duration-500 ${skill.invert ? "invert" : ""}`}
                         onError={(e) => {
                           e.target.style.display = "none";
                           e.target.nextSibling.style.display = "block";

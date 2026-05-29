@@ -4,8 +4,10 @@ import { ExternalLink, Code } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { GlassCard } from "@/components/GlassCard";
 import projectsData from "@/data/projectsData";
+import { useMobile } from "@/hooks/useMobile";
 
 export function ProjectsSection() {
+  const isMobile = useMobile();
   return (
     <section
       id="projects"
@@ -25,7 +27,7 @@ export function ProjectsSection() {
             initial={{
               opacity: 0,
               y: 40,
-              filter: "blur(10px)",
+              filter: isMobile ? "none" : "blur(10px)",
             }}
             whileInView={{
               opacity: 1,
@@ -121,6 +123,8 @@ function PreviewRenderer({ project }) {
           <img
             src={thumb}
             alt={project.title}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
@@ -139,6 +143,8 @@ function PreviewRenderer({ project }) {
     <img
       src={thumb}
       alt={project.title}
+      loading="lazy"
+      decoding="async"
       className="w-full h-full object-cover"
     />
   );
