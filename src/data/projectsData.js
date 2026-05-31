@@ -54,12 +54,7 @@ const projectsData = [
     fallbackThumbnail:
       "https://images.unsplash.com/photo-1639762681485-074b7f4ec8ce?q=80&w=1000&auto=format&fit=crop",
 
-    techStack: [
-      "React",
-      "Node.js",
-      "Tailwind CSS",
-      "Framer-motion"
-    ],
+    techStack: ["React", "Node.js", "Tailwind CSS", "Framer-motion"],
 
     liveLink: "https://our-studio-nischay.vercel.app/",
 
@@ -88,14 +83,38 @@ const projectsData = [
     fallbackThumbnail:
       "https://images.unsplash.com/photo-1639762681485-074b7f4ec8ce?q=80&w=1000&auto=format&fit=crop",
 
-    techStack: [
-      "React",
-      "Node.js",
-      "Tailwind CSS",
-      "Framer-motion"
-    ],
+    techStack: ["React", "Node.js", "Tailwind CSS", "Framer-motion"],
 
     liveLink: "https://momento-brown.vercel.app/",
+
+    githubLink: "#",
+
+    featured: true,
+
+    category: "Frontend",
+
+    accent: "blue",
+
+    layout: "hero",
+  },
+  {
+    id: 3,
+
+    title: "Ciphera - Secure Everything That Matters",
+
+    description:
+      "Modern cybersecurity and password manager SaaS landing page built with React, Tailwind CSS, Framer Motion, and Lenis. Features premium UI, glassmorphism, smooth animations, responsive layouts, and interactive product mockups.",
+
+    previewType: "live",
+
+    previewUrl: "https://ciphera-secure.vercel.app/",
+
+    fallbackThumbnail:
+      "https://images.unsplash.com/photo-1639762681485-074b7f4ec8ce?q=80&w=1000&auto=format&fit=crop",
+
+    techStack: ["React", "Node.js", "Tailwind CSS", "Framer-motion"],
+
+    liveLink: "https://ciphera-secure.vercel.app/",
 
     githubLink: "#",
 
