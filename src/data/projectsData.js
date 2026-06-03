@@ -98,7 +98,7 @@ const projectsData = [
     layout: "hero",
   },
   {
-    id: 3,
+    id: 4,
 
     title: "Ciphera - Secure Everything That Matters",
 
@@ -115,6 +115,35 @@ const projectsData = [
     techStack: ["React", "Node.js", "Tailwind CSS", "Framer-motion"],
 
     liveLink: "https://ciphera-secure.vercel.app/",
+
+    githubLink: "#",
+
+    featured: true,
+
+    category: "Frontend",
+
+    accent: "blue",
+
+    layout: "hero",
+  },
+  {
+    id: 5,
+
+    title: "Digital Experiences - Digital Experiences",
+
+    description:
+      "A modern creative agency experience featuring premium UI, shader-powered hero sections, seamless page transitions, responsive layouts, and elegant motion design.",
+
+    previewType: "live",
+
+    previewUrl: "https://novaforge-design.vercel.app/",
+
+    fallbackThumbnail:
+      "https://images.unsplash.com/photo-1639762681485-074b7f4ec8ce?q=80&w=1000&auto=format&fit=crop",
+
+    techStack: ["React", "Node.js", "Tailwind CSS", "Framer-motion"],
+
+    liveLink: "https://novaforge-design.vercel.app/",
 
     githubLink: "#",
 
