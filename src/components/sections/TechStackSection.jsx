@@ -11,7 +11,6 @@ const TECH_CATEGORIES = [
       { name: "HTML5", icon: "html5/html5-original.svg" },
       { name: "CSS3", icon: "css3/css3-original.svg" },
       { name: "JavaScript", icon: "javascript/javascript-original.svg" },
-      { name: "TypeScript", icon: "typescript/typescript-original.svg" },
       { name: "React.js", icon: "react/react-original.svg" },
       { name: "Tailwind CSS", icon: "tailwindcss/tailwindcss-original.svg" },
       {
@@ -19,7 +18,6 @@ const TECH_CATEGORIES = [
         icon: "framermotion/framermotion-original.svg",
         invert: true,
       },
-      { name: "Three.js", icon: "threejs/threejs-original.svg", invert: true },
       { name: "GSAP", icon: "greensock/greensock-original.svg" },
       { name: "Next.js", icon: "nextjs/nextjs-original.svg", invert: true },
       { name: "Redux", icon: "redux/redux-original.svg" },
@@ -36,20 +34,19 @@ const TECH_CATEGORIES = [
         invert: true,
       },
       { name: "MongoDB", icon: "mongodb/mongodb-original.svg" },
-      { name: "Firebase", icon: "firebase/firebase-plain.svg" },
       {
         name: "Socket.io",
         icon: "socketio/socketio-original.svg",
         invert: true,
       },
       { name: "MySQL", icon: "mysql/mysql-original.svg" },
-      { name: "PostgreSQL", icon: "postgresql/postgresql-original.svg" },
       { name: "REST API", icon: "fastapi/fastapi-original.svg" },
       { name: "JWT Auth", icon: "jsonwebtokens/jsonwebtokens-original.svg" },
+      { name: "Mongoose", icon: "mongoose/mongoose-original.svg" },
     ],
   },
   {
-    title: "Tools & Others",
+    title: "Tools",
     skills: [
       { name: "Git", icon: "git/git-original.svg" },
       { name: "GitHub", icon: "github/github-original.svg", invert: true },
@@ -60,7 +57,8 @@ const TECH_CATEGORIES = [
       { name: "Vercel", icon: "vercel/vercel-original.svg", invert: true },
       { name: "Netlify", icon: "netlify/netlify-original.svg" },
       { name: "npm", icon: "npm/npm-original-wordmark.svg" },
-      { name: "Yarn", icon: "yarn/yarn-original.svg" },
+      { name: "Docker", icon: "docker/docker-original.svg" },
+      { name: "Render", icon: "render/render-original.svg" },
     ],
   },
 ];

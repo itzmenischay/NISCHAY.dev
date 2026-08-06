@@ -11,7 +11,6 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/Footer";
 import { MorphingSquare } from "@/components/ui/MorphingSquare";
 import { AnimatePresence, motion } from "framer-motion";
-import "./App.css";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,17 +20,16 @@ function App() {
     if (!isLoading) {
       const timer = setTimeout(() => {
         setIsLoaderFinished(true);
-      }, 500); // Wait for loader exit animation (0.5s) to complete
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, [isLoading]);
 
   useEffect(() => {
-    // Wait for the window to load or set a small timeout for the animation to show
     const handleLoad = () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 1000); // Wait for 1 second to show off the loader, or adjust as needed
+      }, 1000);
     };
 
     if (document.readyState === "complete") {
@@ -43,10 +41,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (isLoading) return; // Don't initialize lenis while loading
-    
+    if (isLoading) return;
+
     const isMobile = window.innerWidth < 768;
-    
+
     const lenis = new Lenis({
       duration: isMobile ? 0.8 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -87,15 +85,15 @@ function App() {
         <div className="fixed inset-0 z-0 pointer-events-none">
           {/* Bluish Ambient Glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-cyan-500/[0.05] blur-3xl" />
-          
-          {/* Large blurred blue glow spots - optimized for mobile */}
+
+          {/* Large blurred blue glow spots */}
           <div className="hidden md:block absolute top-[20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-600/10 blur-[120px] mix-blend-screen" />
           <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-cyan-600/10 blur-[130px] mix-blend-screen" />
           <div className="hidden md:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[80vw] h-[80vw] rounded-full bg-blue-900/10 blur-[150px] mix-blend-screen opacity-50" />
         </div>
 
         <Navbar />
-        
+
         <main className="relative z-10 flex flex-col items-center w-full">
           <HeroSection />
           <TrustSection />

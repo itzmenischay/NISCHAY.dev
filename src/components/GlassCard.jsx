@@ -2,10 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export function GlassCard({ children, className, glow = true, ...props }) {
+export function GlassCard({ children, className, glow = true, hoverEffect = true, ...props }) {
   return (
     <motion.div
-      whileHover={{ y: -5 }}
+      whileHover={hoverEffect ? { y: -5 } : undefined}
       className={cn(
         "relative rounded-2xl p-6 sm:p-8 h-full",
         "bg-card/40 backdrop-blur-xl border border-blue-500/30",
@@ -20,8 +20,6 @@ export function GlassCard({ children, className, glow = true, ...props }) {
       {glow && (
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       )}
-
-      {/* IMPORTANT FIX */}
       <div className="relative z-10 h-full flex flex-col">{children}</div>
     </motion.div>
   );

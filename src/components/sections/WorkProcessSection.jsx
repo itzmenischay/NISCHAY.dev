@@ -51,7 +51,6 @@ function ProcessStep({ step, idx }) {
     margin: "-50% 0px -50% 0px",
   });
 
-  // Fixes first render animation issue
   const isDesktop =
     typeof window !== "undefined" ? window.innerWidth >= 768 : false;
 
@@ -102,12 +101,6 @@ function ProcessStep({ step, idx }) {
         <motion.div
           initial={{
             opacity: 0,
-
-            // Desktop:
-            // Left cards → left to right
-            // Right cards → right to left
-            // Mobile:
-            // ALL cards → right to left
             x: isDesktop ? (isEven ? 120 : -120) : 120,
 
             scale: 0.98,

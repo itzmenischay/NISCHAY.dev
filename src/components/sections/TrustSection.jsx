@@ -70,7 +70,7 @@ export function TrustSection() {
         className="grid grid-cols-1 md:grid-cols-6 gap-6"
       >
         {TRUST_DATA.map((item, index) => (
-          <GlassCard key={index} className={item.colSpan}>
+          <GlassCard key={index} className={item.colSpan} hoverEffect={false}>
             <motion.div variants={itemVariants} className="flex flex-col h-full justify-between gap-8">
               <div>
                 <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">{item.title}</h3>

@@ -9,7 +9,7 @@ const projectsData = [
 
     previewType: "live",
 
-    previewUrl: "https://blockchain-voting-system-theta.vercel.app/",
+    previewUrl: "https://nexusvote-blockchain.vercel.app/",
 
     fallbackThumbnail:
       "https://images.unsplash.com/photo-1639762681485-074b7f4ec8ce?q=80&w=1000&auto=format&fit=crop",
@@ -26,7 +26,7 @@ const projectsData = [
       "Tailwind CSS",
     ],
 
-    liveLink: "https://blockchain-voting-system-theta.vercel.app/",
+    liveLink: "https://nexusvote-blockchain.vercel.app/",
 
     githubLink: "#",
 

@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { HeroGeometric } from "@/components/HeroBackground";
 import { useLoader } from "@/context/LoaderContext";
+import resumeUrl from "@/assets/Nischay_Resume.pdf";
 
 export function HeroSection() {
   const { isLoaderFinished } = useLoader();
@@ -21,7 +22,7 @@ export function HeroSection() {
       y: 0,
       transition: {
         duration: 1,
-        delay: 0.1, // matches HeroBackground
+        delay: 0.1,
         ease: [0.25, 0.4, 0.25, 1],
       },
     }),
@@ -72,7 +73,8 @@ export function HeroSection() {
             </a>
 
             <a
-              href="#"
+              href={resumeUrl}
+              download="Nischay_Resume.pdf"
               className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-medium text-white/80 bg-white/5 border border-white/10 rounded-full transition-all hover:bg-white/10 hover:text-white hover:border-white/20"
             >
               <Download className="w-4 h-4" />
@@ -98,7 +100,7 @@ export function HeroSection() {
             }
             transition={{
               duration: 0.9,
-              delay: 0.55, // slightly after hero content
+              delay: 0.55,
               ease: [0.25, 0.4, 0.25, 1],
             }}
             className="w-full max-w-4xl px-4"
